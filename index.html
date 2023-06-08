@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<head>
+		<title>答案之书</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" href="css/index.css">
+<!-- 		<link rel="stylesheet" href="css/weui.css">
+		<link rel="stylesheet" href="css/helpyouselect.css"> -->
+<!-- 		<link rel="shortcut icon" href="image/logo.ico" type="image/x-icon"> -->
+
+	</head>
+	<body>
+		<div class="container" id="container1">
+			<img src="img/bor.png">
+			<div class="text">
+				神奇的答案之书
+			</div>
+			<div class="text1">
+				心里默念一个问题，并告诉我一个数字，这本神奇的答案之书将为你提供指引!
+			</div>
+			<div class="jinrubutton1">
+				<input id="number" type="text" placeholder="请告诉我你的幸运数字" style="width: 98%;height: 80%;color:green;background-color: #191919;font-size: 30px;border:0;"/>
+			</div>
+
+			<div class="jinrubutton" onclick="getAnswers()">
+				获得指引
+			</div>
+			<img class="bottomimg" src="img/bor.png">
+		</div>
+		<div class="container" id="container2" style="display: none;">
+			<img src="img/bor.png">
+			<div class="text" id="tttttt" style="margin-top: 30px;">
+
+			</div>
+
+			<div class="jinrubutton2" onclick="back()">
+				返回
+			</div>
+			<img class="bottomimg1" src="img/bor.png">
+		</div>
+		<script src="js/zepto.min.js"></script>
+		<script src="js/dnzs.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script type="application/javascript">
+			function getAnswers(){
+				var number = $("#number").val();
+				if(isInteger(number)){
+					if(number > 299){
+						alert("请输入小于299的数字");
+					}else{
+						$("#tttttt").text(dazs.zh[number]);
+						$("#container1").hide();
+						$("#container2").show();
+					}
+				}else{
+					alert("请输入一个整数");
+				}
+
+			}
+
+			function back(){
+				$("#container1").show();
+				$("#container2").hide();
+			}
+
+			function isInteger(num) {
+				return /^\d+$/.test(num);
+			}
+		</script>
+	</body>
+</html>
